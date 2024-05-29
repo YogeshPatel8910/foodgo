@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-const mongoURI = 'mongodb+srv://yogeshfoodgo:$yogeshfoodgo$@cluster0.sa1epfu.mongodb.net/foodgomern?retryWrites=true&w=majority&appName=Cluster0'
+const mongoURI = 'mongodb://yogeshfoodgo:$yogeshfoodgo$@ac-wqjrfiz-shard-00-00.sa1epfu.mongodb.net:27017,ac-wqjrfiz-shard-00-01.sa1epfu.mongodb.net:27017,ac-wqjrfiz-shard-00-02.sa1epfu.mongodb.net:27017/?ssl=true&replicaSet=atlas-weh5zn-shard-0&authSource=admin&retryWrites=true&w=majority&appName=Cluster0'
 module.exports = function (callback) {
     mongoose.connect(mongoURI, { useNewUrlParser: true }, async (err, result) => {
         // mongoDbClient.connect(mongoURI, { useNewUrlParser: true }, async(err, result) => {
