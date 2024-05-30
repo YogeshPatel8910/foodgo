@@ -1,5 +1,5 @@
 const mongoURI =  process.env.mongoURI || "mongodb+srv://yogeshfoodgo:$yogeshfoodgo$@cluster0.sa1epfu.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
-
+require('dotenv').config();
 const mongoose = require('mongoose')
 mongoose.set('strictQuery', false);
 // const mongoDbClient = require("mongodb").MongoClient
