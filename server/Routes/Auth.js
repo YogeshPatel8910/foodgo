@@ -108,7 +108,7 @@ router.post('/getlocation', async (req, res) => {
         let long = req.body.latlong.long
         console.log(lat, long)
         let location = await axios
-            .get("https://api.opencagedata.com/geocode/v1/json?q=" + lat + "+" + long + "&key=74c89b3be64946ac96d777d08b878d43")
+            .get("https://api.opencagedata.com/geocode/v1/json?q=" + lat + "+" + long + process.env.api)
             .then(async res => {
                 // console.log(`statusCode: ${res.status}`)
                 console.log(res.data.results)
