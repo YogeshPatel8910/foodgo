@@ -1,26 +1,25 @@
-const mongoURI = process.env.mongoURI || "mongodb+srv://yogeshfoodgo:$yogeshfoodgo$@cluster0.sa1epfu.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
-const MongoClient = require('mongodb').MongoClient;
+const mongoURI =  process.env.mongoURI || "mongodb+srv://yogeshfoodgo:$yogeshfoodgo$@cluster0.sa1epfu.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
 
-require('dotenv').config(); 
-
-
+const mongoose = require('mongoose')
+mongoose.set('strictQuery', false);
+// const mongoDbClient = require("mongodb").MongoClient
+// mongodb://<username>:<password>@merncluster-shard-00-00.d1d4z.mongodb.net:27017,merncluster-shard-00-01.d1d4z.mongodb.net:27017,merncluster-shard-00-02.d1d4z.mongodb.net:27017/?ssl=true&replicaSet=atlas-eusy5p-shard-0&authSource=admin&retryWrites=true&w=majority
 module.exports = function (callback) {
-    MongoClient.connect(mongoURI, { useNewUrlParser: true }, async (err, result) => {
+    mongoose.connect(mongoURI, { useNewUrlParser: true ,}, async (err, result) => {
         // mongoDbClient.connect(mongoURI, { useNewUrlParser: true }, async(err, result) => {
         if (err) console.log("---" + err)
         else {
             // var database =
             console.log("connected to mongo")
-            const db = result.db();
-    
-            const foodCollection = await db.collection("food_item");
+            const foodCollection = await mongoose.connection.db.collection("food_items");
             foodCollection.find({}).toArray(async function (err, data) {
-                const categoryCollection = await db.collection("foodCategory");
+                const categoryCollection = await mongoose.connection.db.collection("foodCategory");
                 categoryCollection.find({}).toArray(async function (err, Catdata) {
                     callback(err, data, Catdata);
 
                 })
             });
+            
             // listCollections({name: 'food_items'}).toArray(function (err, database) {
             // });
             //     module.exports.Collection = database;
