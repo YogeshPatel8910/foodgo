@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-const mongoURI = "mongodb+srv://yogeshfoodgo:$yogeshfoodgo$@cluster0.sa1epfu.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+const mongoURI = "mongodb+srv://yogeshfoodgo:$yogeshfoodgo$@cluster0.sa1epfu.mongodb.net/foodgomern?retryWrites=true&w=majority&appName=Cluster0"
 // const mongoDbClient = require("mongodb").MongoClient
 // mongodb://<username>:<password>@merncluster-shard-00-00.d1d4z.mongodb.net:27017,merncluster-shard-00-01.d1d4z.mongodb.net:27017,merncluster-shard-00-02.d1d4z.mongodb.net:27017/?ssl=true&replicaSet=atlas-eusy5p-shard-0&authSource=admin&retryWrites=true&w=majority
 module.exports = function (callback) {
