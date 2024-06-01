@@ -1,2 +1,2 @@
 ﻿# Deployed app on
- https://foodgoo.netlify.app/
+ https://foodgoo.netlify.app
